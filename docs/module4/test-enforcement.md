@@ -57,4 +57,4 @@ to prove enforcement, both for your own learning and in front of a customer.
 > identity), the control configuration, and that the live request actually went
 > through the proxy ([Exercise 2.2](/module2/test-proxy.md)).
 
-[Next: Module 5 — Categorization →](/module5/README.md)
+[Next: Exercise 4.4 — Explore the Default Policy →](/module4/default-policy.md)

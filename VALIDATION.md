@@ -20,19 +20,40 @@ Reader-facing pages intentionally avoid authoring disclaimers.
 - [ ] **REDACTION:** `username-entry.png` and `username-and-password.png` may show
   example credentials. Redact real username/password before publication. The guide
   already instructs SEs not to reuse the screenshot values.
-- [ ] **Pending asset:** `images/status-window-tenant-building.png` is not yet
-  supplied. Module 1 shows a commented TODO placeholder; add the image and uncomment
-  the block when available.
+- [ ] **REDACTION:** `user-activity-logged.png` and `activity-redacted.png` show live
+  User Activity — confirm no real identities/emails/tenant details are visible.
+- [ ] **Captions not visually verified.** The live-events/policy screenshots
+  (Modules 2–4, this pass) were added **without a sighted review** — captions and
+  figure text were written from the prompt's descriptions, not from reading the
+  images. Confirm each caption matches what the screen actually shows, and correct
+  any UI label/value mismatch.
+- [ ] **Pending asset:** `service-block.png` was not supplied. Exercise 4.4 has a
+  commented TODO; add the image and uncomment the block when available.
+- [ ] **Redaction source text:** the named source file
+  (`simple-redaction-example.txt` / `simple-redaction.txt`) was **not present**;
+  `docs/examples/simple-redaction.txt` is a clearly-synthetic replacement. Swap in the
+  real approved text if one exists.
+- [ ] *(optional)* add a screenshot of the redacted ChatGPT browser response in 3.3.
 
 ## Live behavior not yet exercised
-- [ ] **Live interception** (Module 3): generating a live event and seeing a new
-  User Activity record is not verified end to end here.
-- [ ] **Policy enforcement** (Module 4): whether a control reliably triggers on a
-  crafted prompt needs a hands-on run.
+- [ ] **Live interception + redaction** (Module 3): the ChatGPT success, matching User
+  Activity event, and the Marketing/Redact/PII/Confidential/Risk/License redaction
+  event are documented from supplied screenshots but **not run end to end here**.
+- [ ] **Certificate check** (Exercise 2.2): the Chrome certificate-view steps are based
+  on the screenshot + current Chrome UI; confirm the exact issuer/path on a real VM.
+- [ ] **Policy block/allow** (Module 4.5–4.6): Grok blocked → Copilot redirect → allow
+  → restore is documented from screenshots; confirm on a live tenant, including that
+  the restore step returns the original blocked state.
+- [ ] **Default Policy specifics** (4.4): confirm the starting mode is Allow - Protect
+  and the exact Service Block Action options per deployment.
 - [ ] **Categorization** (Module 5): whether category rules can be created/modified,
   and whether a prompt lands in a chosen category, is unconfirmed.
 - [ ] **Proxy/PAC specifics:** helper address (`10.1.1.4`), scheduled-task name,
   boot-log path, and PAC value are examples; confirm per deployment.
+- [ ] **Policy API source:** the internal WAIS org/policy API docs returned HTTP 302
+  (corporate auth) and could not be read; `docs/sources/policy-behavior-notes.md` is
+  grounded only in screenshots. Confirm product-level details against the API docs or
+  current public F5 documentation.
 
 ## Branding
 - [ ] **Official F5 theme review.** The site uses a clean Docsify theme with a red

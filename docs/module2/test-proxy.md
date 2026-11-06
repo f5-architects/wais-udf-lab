@@ -36,11 +36,43 @@ the next module proves the path by generating a live event.
 > **Expected result.** A PAC (automatic proxy setup) script is configured for this
 > lab VM. No changes are required.
 
-**Why it matters:** Confirming the PAC configuration exists *before* you send
-traffic means a later "no event appeared" result points to the app or policy, not
-a missing proxy setup.
+## Steps — confirm interception with the certificate (Chrome)
 
-**Reset / cleanup:** None — this check is read-only and changes nothing.
+Because WAIS inspects the connection, the certificate presented to Chrome for an
+intercepted site is issued through the **WAIS inspection trust** configured on this
+VM — not the site's own public certificate. Viewing it is a quick, read-only way to
+confirm traffic is taking the WAIS path.
+
+1. In Chrome on the Windows client, open a site that the lab routes through WAIS.
+2. Select the **padlock / site information** icon to the left of the address bar.
+3. Open **Connection is secure → Certificate is valid** to view the certificate.
+4. Inspect the **Issued by** and the certification path (intermediate/issuer). For an
+   intercepted connection this reflects the lab's WAIS inspection trust rather than a
+   public certificate authority.
+
+![Viewing the certificate for an intercepted connection in Chrome to confirm the WAIS inspection path.](../images/validate-certificate.png ':size=650')
+
+*Figure 2.2 — Inspecting the certificate chain for the test connection confirms the
+traffic is taking the configured WAIS inspection path.*
+
+> **Note.** Read the certificate; do **not** install or change any certificate. The
+> exact subject and issuer values are whatever your tenant's inspection trust shows —
+> compare against what your deployment documents.
+
+> **Expected result.** The certificate for the intercepted connection is issued
+> through the lab's WAIS inspection trust, confirming the connection is being routed
+> through the WAIS proxy path.
+
+> **Note.** A successful certificate check is strong evidence of the **configured
+> path**, but it does not by itself prove that events are being **logged**. You
+> confirm logging in [Module 3](/module3/README.md) by generating a live event and
+> finding it in User Activity.
+
+**Why it matters:** Confirming the PAC configuration *and* the inspection certificate
+*before* you send traffic means a later "no event appeared" result points to the app
+or policy, not a missing or broken proxy path.
+
+**Reset / cleanup:** None — both checks are read-only and change nothing.
 
 > **Tip.** If the automatic proxy setup is missing, or you want the deeper
 > connectivity, scheduled-task, and log checks, see

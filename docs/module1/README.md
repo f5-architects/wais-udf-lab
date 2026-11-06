@@ -45,11 +45,9 @@ credentials and download links on the ready page.
 1. Leave the provisioning page open. While the tenant is created, the page shows a
    **building / waiting for tenant readiness** state.
 
-   <!-- TODO(image): status-window-tenant-building.png is still pending from the
-   lab owner. When supplied, add it here:
-   ![WAIS provisioning page in the building state.](../images/status-window-tenant-building.png ':size=600') -->
-   > **Note.** The building-state screenshot is not yet available. This step shows
-   > no building image until the asset is supplied.
+   ![WAIS provisioning page waiting for the tenant to be created.](../images/waiting-for-tenant.png ':size=600')
+
+   *Figure 1.2a — The provisioning page while your tenant is still being created.*
 
 2. Wait for provisioning to finish (typically a few minutes).
 

@@ -16,6 +16,11 @@ UDF startup service is modified, and no deployment is performed in this pass.
 | `<RELEASE_TAG>` | Pinned release tag or commit SHA | `v0.1.0` or a 40-char SHA |
 | `<DEPLOY_URL>` | Where the VM serves the guide | `http://localhost:<PORT>/` |
 | `<PORT>` | Local HTTP port for the guide | choose an available port, **not 8080** |
+| `<DEPLOY_CREDENTIAL>` | Read-only access to the **private** repo (deploy key or fine-grained token) | stored outside the web root; never committed |
+
+> **The repository will be private.** Peter will create a **private** GitHub
+> repository and provide its URL separately. Do not guess the URL, add a remote, or
+> push.
 
 ## 1. Publish from GitHub (future)
 
@@ -51,6 +56,30 @@ Then open `<DEPLOY_URL>` in the VM's browser.
 > **Keep services separate.** The tenant-helper Python service uses **port 8080**.
 > Serve this documentation on a **different, configurable port** so the two do not
 > collide. Confirm the chosen port is free at deploy time.
+
+### Private-repository access (maintainer-only)
+
+Because the repository is **private**, the Ubuntu Orchestrator VM needs read access
+to pull the pinned release. Use the least-privilege option and keep the credential
+out of everything that gets served or published:
+
+- Use an **approved read-only deploy key** (SSH, scoped to this one repo) **or** a
+  **fine-grained personal access token** limited to read-only contents of this repo.
+- **Store the credential outside the web root** (not under `docs/`, not anywhere the
+  static server serves). For example, a root-owned file like
+  `/etc/wais-lab/deploy-credential` with restrictive permissions.
+- **Never** embed the credential in Docsify files, `index.html`, `_sidebar.md`, any
+  page, a screenshot, the Blueprint documentation, or a commit. It must not reach the
+  published `docs/` tree.
+- Prefer fetching the pinned tag over SSH with the deploy key, e.g.:
+
+  ```bash
+  # SSH deploy key (read-only), key path kept outside the web root:
+  GIT_SSH_COMMAND="ssh -i /etc/wais-lab/deploy-key -o IdentitiesOnly=yes" \
+    git clone --depth 1 --branch "<RELEASE_TAG>" "git@github.com:<org>/<repo>.git" wais-lab
+  ```
+
+- Rotate the deploy key / token on the normal schedule and when staff change.
 
 ## 3. Offline / no-CDN requirement
 

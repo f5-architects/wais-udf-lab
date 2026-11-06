@@ -39,6 +39,30 @@ purpose. All commands shown are **read-only** unless explicitly noted.
   use a **private/incognito** window with the console URL from the ready page.
 - Confirm the tenant is in the **ready** state, not building.
 
+## Proxy authentication prompt on the first request
+
+The first time you send traffic from the Windows client (for example, your first
+ChatGPT test), the **WAIS proxy** may present an **authentication prompt** before it
+allows the request through. This is expected.
+
+- Enter the **WAIS tenant username and password shown on your tenant provisioning /
+  ready page** — the generated, petname-based credentials for your deployment.
+- Do **not** use the Windows RDP `user` / `user` credentials here.
+- After authenticating, resend the harmless test prompt and confirm a matching new
+  event appears in User Activity.
+
+This lab uses **three distinct credential contexts** — keep them straight:
+
+| Context | What it is | Credentials to use |
+|---|---|---|
+| **Windows RDP** | Signing in to the Windows 11 lab desktop | `user` / `user` |
+| **WAIS admin login** | The admin console (management UI) | Generated tenant credentials from the ready page |
+| **WAIS proxy authentication** | The proxy prompt before intercepted traffic is allowed | Generated tenant credentials from the ready page |
+
+> **Note.** Read the tenant credentials from the ready page each time; they are
+> per-deployment. If your tenant's proxy prompt behaves differently, follow the lab
+> owner's tested observation rather than assuming this exact flow.
+
 ## Windows client: helper not reachable
 
 Run the read-only reachability check (lab example address):

@@ -21,15 +21,23 @@ so you have known live traffic to find in WAIS.
 1. From Chrome **inside the Windows 11 RDP session**, open ChatGPT as supported by
    the lab.
 
-2. Send a short, harmless prompt. A simple sample:
+2. Send this short, harmless test prompt:
 
    ```text
-   Lab test WAIS-LAB-CHAT-01. Share a one-sentence fun fact about lighthouses.
+   this is a test of the early warning system
    ```
 
    ![Entering a simple, harmless test request in ChatGPT from the Windows client.](../images/simple-chatgpt-test.png ':size=650')
 
    *Figure 3.1a — A simple harmless ChatGPT test request from the W11 browser.*
+
+> **Tip — if the WAIS proxy asks you to sign in.** The first time you send traffic,
+> the WAIS proxy may show an **authentication prompt** before the request goes
+> through. Enter the **WAIS tenant username and password shown on your tenant
+> provisioning / ready page** — **not** the Windows RDP `user` / `user` credentials.
+> After authenticating, resend the prompt. See
+> [Troubleshooting](/appendix/troubleshooting.md?id=proxy-authentication-prompt-on-the-first-request)
+> for the three credential contexts used in this lab.
 
 3. Send the request and wait for the reply.
 

@@ -127,30 +127,26 @@ using the generated credentials from the tenant-ready page.
 
 1. In the Windows session, open **Chrome**. On the tenant-ready page, copy your
    generated **username**, then select **Open the admin console** (or navigate to
-   the tenant-specific admin URL it provides).
-
-   ![WAIS tenant-ready page with the generated username, password, and the button to open the admin console.](../images/status-window-tenant-available.png ':size=650')
-
-   *Figure 1.4a — The ready page provides the username, password, and the link to
-   open the admin console.*
+   the tenant-specific admin URL it provides). The ready page is shown in
+   [Exercise 1.2](/module1/README.md?id=exercise-12--wait-for-your-tenant).
 
 2. On the sign-in screen, paste the generated **username** into the username field
    and continue.
 
    ![WAIS sign-in screen with the username and password fields, ready to submit.](../images/username-and-password.png ':size=500')
 
-   *Figure 1.4b — The WAIS sign-in screen where you enter your generated
+   *Figure 1.4a — The WAIS sign-in screen where you enter your generated
    credentials.*
 
    ![WAIS sign-in screen with the generated username entered.](../images/username-entry.png ':size=500')
 
-   *Figure 1.4c — Enter the username generated for your deployment.*
+   *Figure 1.4b — Enter the username generated for your deployment.*
 
 3. When asked how you want to sign in, choose **Email and Password**.
 
    ![Sign-in method selection showing the Email and Password option.](../images/choose-password-method.png ':size=500')
 
-   *Figure 1.4d — Select Email and Password as the sign-in method.*
+   *Figure 1.4c — Select Email and Password as the sign-in method.*
 
 4. Enter the **password** from the tenant-ready page and complete sign-in.
 

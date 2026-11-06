@@ -56,9 +56,7 @@ trends, and filter insights — before configuring any policies.
 
 ![Insights Public Services view summarizing activity across public AI services.](../images/insights-public-data.png ':size=700')
 
-*Figure 2.1c — The Public Services view summarizes usage across public AI
-services.* (The image file is named `insights-public-data.png`; the view is
-labeled **Public Services**.)
+*Figure 2.1c — The Public Services view summarizes usage across public AI services.*
 
 3. Open the **Transactions** view.
 

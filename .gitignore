@@ -1,0 +1,43 @@
+# --- Private authoring material (never publish) ---
+.local/
+.claude/
+# Root CLAUDE.md is kept locally for Claude Code auto-discovery but not published.
+# Both casings are ignored since filesystems may be case-insensitive.
+CLAUDE.md
+claude.md
+*.prompt.md
+
+# --- Secrets and local environment ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# --- Python / local tools ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Legacy Sphinx artifacts ---
+_build/
+docs/_build/
+
+# --- Temporary files ---
+*.log
+*.tmp
+*.bak
+
+# --- Notes ---
+# Do NOT ignore docs/.nojekyll or docs/vendor/* — the Docsify site needs them.
+# They are tracked despite the leading-dot / minified-asset patterns above.

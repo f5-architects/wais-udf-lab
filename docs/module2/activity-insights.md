@@ -13,7 +13,7 @@ trends, and filter insights — before configuring any policies.
 
 1. In the admin console, open the **User Activity** view.
 
-![WAIS User Activity view listing activity events with identities and services.](/images/user-activity-screen.png ':size=700')
+![WAIS User Activity view listing activity events with identities and services.](../images/user-activity-screen.png ':size=700')
 
 *Figure 2.1a — The User Activity view lists recent AI interactions.*
 
@@ -37,7 +37,7 @@ trends, and filter insights — before configuring any policies.
 4. Select an activity row and click the **`>`** chevron at the side of the row to
    open its details.
 
-![Expanded details panel for a single User Activity event.](/images/user-event-details.png ':size=700')
+![Expanded details panel for a single User Activity event.](../images/user-event-details.png ':size=700')
 
 *Figure 2.1b — The chevron on a row opens that event's details panel.*
 
@@ -54,7 +54,7 @@ trends, and filter insights — before configuring any policies.
 
 2. Start with the **Public Services** view.
 
-![Insights Public Services view summarizing activity across public AI services.](/images/insights-public-data.png ':size=700')
+![Insights Public Services view summarizing activity across public AI services.](../images/insights-public-data.png ':size=700')
 
 *Figure 2.1c — The Public Services view summarizes usage across public AI
 services.* (The image file is named `insights-public-data.png`; the view is
@@ -62,13 +62,13 @@ labeled **Public Services**.)
 
 3. Open the **Transactions** view.
 
-![Insights Transactions view showing activity as transactions.](/images/insights-transactions.png ':size=700')
+![Insights Transactions view showing activity as transactions.](../images/insights-transactions.png ':size=700')
 
 *Figure 2.1d — The Transactions view shows activity as a set of transactions.*
 
 4. Open the **Top Users** view.
 
-![Insights Top Users view listing the most active identities.](/images/insights-top-users.png ':size=700')
+![Insights Top Users view listing the most active identities.](../images/insights-top-users.png ':size=700')
 
 *Figure 2.1e — The Top Users view highlights the most active identities.*
 
@@ -77,7 +77,7 @@ labeled **Public Services**.)
 
 5. Apply a filter to narrow the results.
 
-![Insights view with a filter applied to narrow the displayed results.](/images/insights-filter.png ':size=700')
+![Insights view with a filter applied to narrow the displayed results.](../images/insights-filter.png ':size=700')
 
 *Figure 2.1f — Apply a filter to focus Insights on a subset of activity.* Select
 an available filter, observe how the results change, then **clear or reset** the

@@ -21,7 +21,7 @@ as running.
 3. In the Orchestrator, open the **Access** menu.
 4. Select **WAIS**.
 
-![UDF Orchestrator Access menu showing the WAIS entry.](/images/wais-menu.png ':size=400')
+![UDF Orchestrator Access menu showing the WAIS entry.](../images/wais-menu.png ':size=400')
 
 *Figure 1.1 — Orchestrator → Access → WAIS opens the tenant provisioning page.*
 
@@ -47,7 +47,7 @@ credentials and download links on the ready page.
 
    <!-- TODO(image): status-window-tenant-building.png is still pending from the
    lab owner. When supplied, add it here:
-   ![WAIS provisioning page in the building state.](/images/status-window-tenant-building.png ':size=600') -->
+   ![WAIS provisioning page in the building state.](../images/status-window-tenant-building.png ':size=600') -->
    > **Note.** The building-state screenshot is not yet available. This step shows
    > no building image until the asset is supplied.
 
@@ -56,7 +56,7 @@ credentials and download links on the ready page.
 3. When provisioning completes, the page refreshes to the **ready** state and
    shows your tenant details and downloads.
 
-![WAIS provisioning ready page showing the admin login, admin-console button, and connector downloads.](/images/status-window-tenant-available.png ':size=650')
+![WAIS provisioning ready page showing the admin login, admin-console button, and connector downloads.](../images/status-window-tenant-available.png ':size=650')
 
 *Figure 1.2 — The ready page shows the generated admin account, an admin-console
 button, a Windows installer, and an all-platforms ZIP.*
@@ -131,7 +131,7 @@ using the generated credentials from the tenant-ready page.
    generated **username**, then select **Open the admin console** (or navigate to
    the tenant-specific admin URL it provides).
 
-   ![WAIS tenant-ready page with the generated username, password, and the button to open the admin console.](/images/status-window-tenant-available.png ':size=650')
+   ![WAIS tenant-ready page with the generated username, password, and the button to open the admin console.](../images/status-window-tenant-available.png ':size=650')
 
    *Figure 1.4a — The ready page provides the username, password, and the link to
    open the admin console.*
@@ -139,18 +139,18 @@ using the generated credentials from the tenant-ready page.
 2. On the sign-in screen, paste the generated **username** into the username field
    and continue.
 
-   ![WAIS sign-in screen with the username and password fields, ready to submit.](/images/username-and-password.png ':size=500')
+   ![WAIS sign-in screen with the username and password fields, ready to submit.](../images/username-and-password.png ':size=500')
 
    *Figure 1.4b — The WAIS sign-in screen where you enter your generated
    credentials.*
 
-   ![WAIS sign-in screen with the generated username entered.](/images/username-entry.png ':size=500')
+   ![WAIS sign-in screen with the generated username entered.](../images/username-entry.png ':size=500')
 
    *Figure 1.4c — Enter the username generated for your deployment.*
 
 3. When asked how you want to sign in, choose **Email and Password**.
 
-   ![Sign-in method selection showing the Email and Password option.](/images/choose-password-method.png ':size=500')
+   ![Sign-in method selection showing the Email and Password option.](../images/choose-password-method.png ':size=500')
 
    *Figure 1.4d — Select Email and Password as the sign-in method.*
 

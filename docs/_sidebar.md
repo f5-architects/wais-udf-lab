@@ -6,6 +6,7 @@
   - [Module 1 — Start the Writable Lab](/module1/README.md)
   - [Module 2 — Explore Your Tenant](/module2/README.md)
     - [2.1 — Explore User Activity and Insights](/module2/activity-insights.md)
+      - [Known Issue — Messages Tab Permissions](/module2/activity-insights.md?id=known-issue--messages-tab-permissions)
     - [2.2 — Test the Proxy after Tenant is Created](/module2/test-proxy.md)
   - [Module 3 — Generate and Inspect Live Events](/module3/README.md)
     - [3.1 — Generate a simple ChatGPT request](/module3/README.md?id=exercise-31--generate-a-simple-chatgpt-request)

@@ -97,4 +97,30 @@ create or change any policies.
 **Reset / cleanup:** Clear any Insights filters you applied. No policy or tenant
 configuration should have changed — this exercise is read-only.
 
+## Known Issue — Messages Tab Permissions
+
+Now that you have explored the admin panel, enable one permission you will need
+later in the lab. On newly provisioned tenants, the **Initial Tenant Owner** account
+may be created **without** the **View User Conversation Data** permission enabled. If
+that permission is missing, the **Messages** tab is not accessible, and later
+exercises that inspect conversation content will not work as described.
+
+> **Note.** This is a known **WAIS platform** issue, **not** a problem with the lab
+> deployment or your tenant. It has been reported to engineering. The steps below are
+> a **temporary workaround** and may be removed once the platform behavior is
+> corrected.
+
+**Steps — enable the permission**
+
+1. In the WAIS admin panel, navigate to **Users & Groups → Admin**.
+2. Locate your administrator (Initial Tenant Owner) account.
+3. Select **Edit user**.
+4. Under **View Permissions**, enable **View User Conversation Data**.
+5. **Save** the changes.
+6. Return to the interface and confirm that the **Messages** tab is now accessible.
+
+> **Expected result.** The **View User Conversation Data** permission is enabled for
+> your administrator account, and the **Messages** tab is accessible for the
+> exercises that follow.
+
 [Next: Exercise 2.2 — Test the Proxy →](/module2/test-proxy.md)

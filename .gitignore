@@ -1,6 +1,7 @@
 # --- Private authoring material (never publish) ---
 .local/
 .claude/
+sources/
 # Root CLAUDE.md is kept locally for Claude Code auto-discovery but not published.
 # Both casings are ignored since filesystems may be case-insensitive.
 CLAUDE.md

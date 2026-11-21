@@ -118,19 +118,25 @@ changing any other tabs.*
 > takes effect for that group. Do not skip this save.
 
 7. Select the **Services** tab. All services are allowed by default. Remove all
-   services **except Anthropic API** (used by Claude Code), so the group's allowed
-   list contains only that service.
+   services **except the following three**, which Engineering needs for Claude Code:
+
+   - **Anthropic API** — Claude Code's backend
+   - **Claude** — the Claude.ai web interface
+   - **Claude Code** — the CLI tool
+
+   To find them quickly, search for `Claude` in the available services list and move
+   each matching service to the allowed list.
 
 8. Click **Save**.
 
-![Services tab showing only Anthropic API remaining in the allowed services list.](../images/allowed-services-lab-policy.png ':size=700')
+![Services tab search for Claude showing Claude, Claude Code, and Anthropic API moved to the allowed list.](../images/allow-claude-claude-code-eng-allow.png ':size=700')
 
-*Figure 4.7c — After removing all other services, only Anthropic API remains
-allowed for this group policy.*
+*Figure 4.7c — Search for "Claude" to find Claude, Claude Code, and Anthropic API.
+Move all three to the allowed list, then save.*
 
 > **Expected result.** A group named `Lab-Engineering-Test` and a group policy named
 > `Lab - Engineering Allow` both exist. The group is assigned to the policy, and the
-> policy's allowed services list contains only Anthropic API.
+> policy's allowed services list contains Claude, Claude Code, and Anthropic API.
 
 ---
 

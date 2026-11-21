@@ -19,7 +19,7 @@ kebab-case filenames ending in `.png`.
 | 3 | 2.3 Step 3 | `public-service-intercept-support.png` | Public Services catalog table: 4–6 service rows with Risk Level and all five Intercept Support columns (Request, Response, License, File Upload, MCP) | Crop to show column headers clearly; at least one row with partial support and one access-only row | Required | Provided |
 | 4 | 4.7 Step 2b | `create-group-policy.png` | Create Group Policy form with Add Policy button (1), Name field (2), and Create button (3) annotated | Arrows already on image; no further crop needed | Required | Provided |
 | 5 | 4.7 Step 2b | `new-policy-page.png` | New policy page showing Available Groups and Assigned Groups lists | Show Lab-Engineering-Test in the lists | Required | Provided |
-| 6 | 4.7 Step 2b | `allowed-services-lab-policy.png` | Services tab with only Anthropic API remaining in allowed services | Show the final allowed list clearly | Required | Provided |
+| 6 | 4.7 Step 2b | `allow-claude-claude-code-eng-allow.png` | Services tab search for "Claude" with Claude, Claude Code, and Anthropic API in the allowed list | Show the search field and all three services in the allowed column | Required | Provided |
 | 7 | 4.7 Step 3 | `group-policy-assignment.png` | End User record or Group membership screen showing the test identity assigned to `Lab-Engineering-Test` | Redact identity fields (use synthetic label); show group membership confirmation | Required | Provided |
 | 8 | 4.7 Step 4 | `end-user-effective-policy.png` | End User record Policies tab: Default Policy + `Lab - Engineering Allow` group policy visible; allowed service listed | Redact identity; highlight the two policy rows and the allowed service entry | Required | Provided |
 | 9 | 4.7 Step 5 | `no-service-page.png` | Default Policy with Default Service Action set to "Show the No Access Page" | Show the action dropdown and setting clearly | Required | Provided |
@@ -34,7 +34,7 @@ kebab-case filenames ending in `.png`.
 | 18 | 5.4 Step 3 | `classifier-policy-action.png` | Default Policy Classifiers tab → Intent Topic Controls section showing `Lab - Project Lighthouse` with Monitor action being selected | Highlight the classifier row and action dropdown | Required | Provided |
 | 19 | 5.4 Step 5 | `custom-intent-event-detail.png` | User Activity detail panel for a `WAIS-LAB-CI-54` event: Violations section shows `Lab - Project Lighthouse` finding; decision shows `INTERCEPT` | Redact identity; highlight the classifier name in violations and the decision value | Required | Provided |
 | 20 | 6.1 Step 1 | `new-fine-grained-token.png` | GitHub New fine-grained token form: token name `wais-lab-mcp-readonly`, 7-day expiry, Public repositories selected | Show name, expiry, and Repository access fields; redact any personal account identifiers if needed | Required | Provided |
-| 21 | 6.1 Step 2 | `mcp-node-version.png` | Terminal output of `node --version` showing v18+ | Crop to just the terminal output | Required | Missing |
+| 21 | 6.1 Step 2 | `mcp-node-version.png` | Terminal output of `node --version` showing v18+ | Crop to just the terminal output | Required | Provided |
 | 22 | 6.1 Step 3 | `mcp-config-file.png` | Notepad showing `claude_desktop_config.json` with the GitHub MCP server entry | Token value must be fully redacted (`<REDACTED>`); show the JSON structure | Required | Missing |
 | 23 | 6.1 Step 4 | `mcp-server-connected.png` | Claude Code terminal showing `/mcp` output with `github` server listed as connected | Crop to the `/mcp` output | Required | Missing |
 | 24 | 6.2 Step 1 | `mcp-catalog-entry.png` | MCP Servers catalog showing the GitHub MCP server entry with tool count | Show the entry row clearly | Required | Missing |
@@ -49,6 +49,7 @@ kebab-case filenames ending in `.png`.
 
 | Filename | Reason |
 |---|---|
+| `allowed-services-lab-policy.png` | Superseded by `allow-claude-claude-code-eng-allow.png` — allowed services now include Claude, Claude Code, and Anthropic API (not Anthropic API alone) |
 | `custom-intent-list.png` | Replaced by `custom-intent-list-add-classifier-button.png` — the Add Classifier button is the actionable element; a plain list screenshot adds no value |
 | `custom-intent-examples.png` | Superseded by `drop-custom-intents-txt-file.png` and `custom-intents-loaded.png` — prompts are loaded via file upload, not entered manually |
 | `custom-entity-example.png` | Step 6 is now explanatory text only; no screenshot needed |

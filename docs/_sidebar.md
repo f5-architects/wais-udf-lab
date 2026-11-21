@@ -27,9 +27,11 @@
     - [5.3 — Verify the resulting activity](/module5/verify-categorization.md)
     - [5.4 — Custom classifiers: protect business context *(optional)*](/module5/custom-classifiers.md)
 
+<!-- Module 6 hidden: requires Claude API key on Windows VM — not yet provisioned in lab blueprint
   - [Module 6 — MCP Governance with GitHub](/module6/README.md)
     - [6.1 — Connect Claude Code to the GitHub MCP server](/module6/mcp-setup.md)
     - [6.2 — Configure MCP tool governance and verify enforcement](/module6/mcp-policy.md)
+-->
 
 - **Class 2 — SE Demo Playbook**
   - [Demo playbook](/demo.md)

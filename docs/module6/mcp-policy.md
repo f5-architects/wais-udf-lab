@@ -237,7 +237,7 @@ you want to carve out specific tools.
 6. In Claude Code, run `/mcp` and confirm the GitHub server is still connected — the
    reset only changes policy, not the client config.
 7. Optionally remove the GitHub MCP server from Claude Code's config:
-   - Open `%APPDATA%\Claude\claude_desktop_config.json` in Notepad.
+   - Open `%APPDATA%\Claude\claude_desktop_config.json` in Notepad++.
    - Delete the `github` entry from `mcpServers`.
    - Save and restart Claude Code.
 8. Delete or expire the GitHub PAT created in Exercise 6.1 from your GitHub

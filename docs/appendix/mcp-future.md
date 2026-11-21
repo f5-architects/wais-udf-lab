@@ -1,9 +1,12 @@
 # MCP Governance Lab
 
-> **Status: implemented in [Module 6](/module6/README.md).**
+> **Status: built but temporarily hidden from navigation.**
 >
-> This page was a placeholder for a future Matthieu-owned lab. The lab has been
-> built and is now Module 6. See [Module 6 — MCP Governance with GitHub](/module6/README.md).
+> Module 6 (MCP Governance with GitHub) has been authored and is in the repository,
+> but is currently removed from the sidebar because it requires a Claude API key
+> configured on the Windows 11 VM — which is not yet provisioned in the lab blueprint.
+> The files remain in `docs/module6/` and will be re-linked once the API key
+> prerequisite is resolved.
 
 ---
 

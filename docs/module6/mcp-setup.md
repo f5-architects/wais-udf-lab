@@ -50,7 +50,7 @@ access, but we need visibility and control over what the agent actually does."
 5. Click **Generate token** and **copy the token value immediately** — GitHub shows
    it only once.
 
-6. Store it temporarily in a Notepad window on the Windows VM. You will paste it
+6. Store it temporarily in a Notepad++ window on the Windows VM. You will paste it
    into the Claude Code config in Step 3. Do not save it to a file you might commit.
 
 > **Expected result.** A fine-grained token named `wais-lab-mcp-readonly` exists in
@@ -98,13 +98,14 @@ The GitHub MCP server is published by GitHub as an npm package
    ```
 
 2. Create or edit Claude Code's MCP configuration file at
-   `%APPDATA%\Claude\claude_desktop_config.json`. Open it in Notepad:
+   `%APPDATA%\Claude\claude_desktop_config.json`. Open it in Notepad++:
 
    ```powershell
-   notepad "%APPDATA%\Claude\claude_desktop_config.json"
+   notepad++ "%APPDATA%\Claude\claude_desktop_config.json"
    ```
 
-   > If the file does not exist, Notepad will offer to create it — click **Yes**.
+   > If the file does not exist yet, create a new file in Notepad++ and save it to
+   > that path before adding content.
 
 3. Add the following configuration, replacing `<YOUR_TOKEN_HERE>` with the token
    you copied in Step 1:
@@ -129,9 +130,9 @@ The GitHub MCP server is published by GitHub as an npm package
    > **Important.** The token value goes in the `env` block, not in `args`. This
    > keeps it out of process arguments and command history.
 
-4. Save and close Notepad.
+4. Save and close Notepad++.
 
-> **Screenshot needed:** `docs/images/mcp-config-file.png` — Notepad showing the
+> **Screenshot needed:** `docs/images/mcp-config-file.png` — Notepad++ showing the
 > `claude_desktop_config.json` contents with the token value **fully redacted**
 > (replace with `<REDACTED>`). Do not capture a screenshot with a real token visible.
 

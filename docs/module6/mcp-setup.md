@@ -29,27 +29,28 @@ access, but we need visibility and control over what the agent actually does."
 2. Navigate to **Settings → Developer settings → Personal access tokens →
    Fine-grained tokens** and click **Generate new token**.
 
+3. Fill in the form:
+
    | Field | Value |
    |---|---|
    | **Token name** | `wais-lab-mcp-readonly` |
    | **Expiration** | 7 days (enough for the lab; shorter is safer) |
    | **Resource owner** | Your personal account |
-   | **Repository access** | **Public Repositories (read-only)** |
+   | **Repository access** | **Public repositories** |
 
-3. Under **Permissions**, grant only:
+   ![GitHub New fine-grained personal access token form showing token name, 7-day expiry, and Public repositories selected.](../images/new-fine-grained-token.png ':size=700')
 
-   | Permission | Access |
-   |---|---|
-   | **Contents** | Read-only |
-   | **Metadata** | Read-only (selected automatically) |
+   *Figure 6.1a — Select Public repositories. This grants read-only Contents and
+   Metadata access to all public repos automatically — no additional permissions
+   are needed.*
 
-   > **Do not grant** write, admin, or any other permission. The lab only needs to
-   > read file contents from a public repository.
+4. Leave the **Permissions** section at its defaults (Account 0, Repository 0). No
+   additional permissions are required for read-only access to public repositories.
 
-4. Click **Generate token** and **copy the token value immediately** — GitHub shows
+5. Click **Generate token** and **copy the token value immediately** — GitHub shows
    it only once.
 
-5. Store it temporarily in a Notepad window on the Windows VM. You will paste it
+6. Store it temporarily in a Notepad window on the Windows VM. You will paste it
    into the Claude Code config in Step 3. Do not save it to a file you might commit.
 
 > **Expected result.** A fine-grained token named `wais-lab-mcp-readonly` exists in

@@ -94,21 +94,43 @@ Action to grant:        Allow (or the specific service-allow behavior available)
 
 **2b — Create the group policy**
 
-4. Navigate to **Workforce Security → Group Policies** and create a new group policy.
+4. Navigate to **Workforce Security → Group Policies**.
 
-   | Field | Value |
-   |---|---|
-   | **Name** | `Lab - Engineering Allow` |
-   | **Group** | `Lab-Engineering-Test` |
+5. Click **Add Policy** *(arrow 1)*, enter `Lab - Engineering Allow` in the
+   **Name** field *(arrow 2)*, then click **Create** *(arrow 3)*.
 
-5. In the new group policy's **Services** tab, add your chosen service to the
-   **Allowed Services** list.
+![Create Group Policy form with Add Policy, Name, and Create highlighted.](../images/create-group-policy.png ':size=700')
 
-6. Save the group policy.
+*Figure 4.7a — Click Add Policy, enter the name, then click Create.*
 
-> **Expected result.** A group named `Lab-Engineering-Test` and a separate group
-> policy named `Lab - Engineering Allow` both exist. The group policy is linked to
-> the group and allows the chosen service.
+6. The new policy page opens. Before configuring Services, assign the group:
+
+   - In the **Assigned Groups** section, move **`Lab-Engineering-Test`** from the
+     **Available Groups** list to the **Assigned Groups** list.
+   - Click **Save**.
+
+![New group policy page showing Available Groups and Assigned Groups lists.](../images/new-policy-page.png ':size=700')
+
+*Figure 4.7b — Move Lab-Engineering-Test to Assigned Groups and save before
+changing any other tabs.*
+
+> **Why save first?** The group assignment must be saved before the Services tab
+> takes effect for that group. Do not skip this save.
+
+7. Select the **Services** tab. All services are allowed by default. Remove all
+   services **except Anthropic API** (used by Claude Code), so the group's allowed
+   list contains only that service.
+
+8. Click **Save**.
+
+![Services tab showing only Anthropic API remaining in the allowed services list.](../images/allowed-services-lab-policy.png ':size=700')
+
+*Figure 4.7c — After removing all other services, only Anthropic API remains
+allowed for this group policy.*
+
+> **Expected result.** A group named `Lab-Engineering-Test` and a group policy named
+> `Lab - Engineering Allow` both exist. The group is assigned to the policy, and the
+> policy's allowed services list contains only Anthropic API.
 
 ---
 
@@ -161,35 +183,38 @@ actually governed by?"*
 
 ## Step 5 — Generate a request and inspect the event
 
-1. From the Windows client, send a request to the service you added to the group
-   policy. Include a unique marker so you can find the event:
+The group policy allows only **Anthropic API**. When you send a prompt via
+**ChatGPT** (which is not on the allowed list), it will be blocked and redirected —
+demonstrating that the group policy is enforcing access control.
+
+1. From the Windows client, open ChatGPT and send this prompt:
 
    ```text
-   WAIS-LAB-GP-47 Testing group policy access to [service name]. This is a lab test.
+   WAIS-LAB-GP-47 Testing group policy enforcement. This is a lab test.
    ```
 
-2. Open **Observe → User Activity** and find the new event by marker or timestamp.
+2. Observe that the request is **blocked and redirected to Copilot** — ChatGPT is
+   not in the group policy's allowed services list.
+
+   > **Note — Copilot redirect.** The redirect destination is set by the Default
+   > Policy's **Service Block Action**. If Copilot also fails to load after the
+   > redirect, that is a separate known issue being tracked — the redirect itself is
+   > working correctly. See [CONFIRMATION_NEEDED.md](/CONFIRMATION_NEEDED.md) item 4.
+
+3. Open **Observe → User Activity** and find the new event by marker or timestamp.
 
 > **Screenshot needed:** `docs/images/group-policy-activity.png` — User Activity event
-> for the lab test prompt, showing the allowed decision and the correct service; redact
-> identity fields.
+> for the `WAIS-LAB-GP-47` prompt showing a `BLOCK` decision and ChatGPT as the
+> service; redact identity fields.
 
-3. Open the event detail. Confirm:
-   - **Service** matches your chosen service.
-   - **Decision** is `INTERCEPT` (allowed through) — not `BLOCK`.
+4. Open the event detail. Confirm:
+   - **Service** is ChatGPT.
+   - **Decision** is `BLOCK`.
    - **Identity** matches your test identity.
 
-> **Expected result.** The event shows `INTERCEPT`, proving the group policy granted
-> access that the Default Policy alone would not have provided under a Block posture.
-
-> **Note on the current Default Policy posture.** If the Default Policy is still set to
-> `Allow - Monitor` (the out-of-the-box state), every service is allowed by default
-> unless explicitly blocked. In that case, the group policy allow is not strictly
-> required for the request to go through — but creating the group and policy, assigning
-> the user, and verifying the effective policy still demonstrates the full workflow.
-> To make the group allow meaningful in a live demo, temporarily set the Default
-> Service Action to **Block** and then show the group allow rescuing the specific
-> service. If you do this, **reset the Default Policy action immediately after**.
+> **Expected result.** The event shows `BLOCK` for ChatGPT, and the browser was
+> redirected. This proves the group policy's allow list is restricting access to
+> services not explicitly permitted.
 
 ---
 

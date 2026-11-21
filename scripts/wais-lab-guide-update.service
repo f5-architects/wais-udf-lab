@@ -1,0 +1,14 @@
+[Unit]
+Description=WAIS Lab Guide — pull latest from git and sync to nginx on boot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/wais-lab-guide/scripts/update-lab-guide.sh
+StandardOutput=journal
+StandardError=journal
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

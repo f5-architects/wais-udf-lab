@@ -43,3 +43,6 @@
   - [References](/appendix/references.md)
   - [Validation checklist](/appendix/validation.md)
   - [Future — MCP Governance *(owner: Matthieu)*](/appendix/mcp-future.md)
+
+- **Lab Guide Info**
+  - [Changelog & Update](/lab-info.md)

@@ -141,6 +141,20 @@ it, but do not modify it. Do **not** invent or hardcode a PAC URL.
 - Confirm the destination is a GenAI service WAIS is configured to intercept.
 - Confirm the GenAI app is signed in and has credits.
 
+## Update the lab guide content
+
+If you are seeing stale content (a step that does not match the UI, a screenshot
+that looks wrong, or a page that is missing) the lab guide may be out of date.
+Run this command on the Ubuntu VM to pull the latest version and sync it to nginx:
+
+```bash
+sudo /opt/wais-lab-guide/scripts/update-lab-guide.sh
+```
+
+Then hard-refresh your browser (`Ctrl+Shift+R`). The script logs to
+`/var/log/wais-lab-guide-update.log`. See [Lab Guide Info → Changelog & Update](/lab-info.md)
+for version history and what changed in each release.
+
 ## GenAI app out of credits
 
 A known lab constraint: test apps can run out of credits. This is an environment

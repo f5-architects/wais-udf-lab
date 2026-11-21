@@ -7,7 +7,7 @@ Version and update information for the WAIS Writable Lab Guide.
 ## Update the lab guide
 
 The lab guide is served from `/srv/wais-lab-guide/` on this Ubuntu VM and synced
-from [github.com/f5-architects/wais-lab-guide](https://github.com/f5-architects/wais-lab-guide)
+from [github.com/f5-architects/wais-udf-lab](https://github.com/f5-architects/wais-udf-lab)
 at `/opt/wais-lab-guide/`. The VM pulls the latest version automatically on each boot.
 
 To update manually without rebooting — for example after a content fix is pushed

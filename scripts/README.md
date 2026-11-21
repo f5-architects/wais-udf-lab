@@ -14,7 +14,7 @@ Run these steps once after the Blueprint image is provisioned.
 **1. Clone the repo (if not already present)**
 
 ```bash
-sudo git clone https://github.com/f5-architects/wais-lab-guide.git /opt/wais-lab-guide
+sudo git clone https://github.com/f5-architects/wais-udf-lab.git /opt/wais-lab-guide
 ```
 
 **2. Make the script executable**

@@ -28,7 +28,11 @@ and reviewed.
 | 6 | [docs/module5/configure-categorization.md](docs/module5/configure-categorization.md) | Step 1–2 | Whether category rules can be created or edited in the writable tenant, and what the exact click path is | | Required | Open |
 | 7 | [docs/module5/verify-categorization.md](docs/module5/verify-categorization.md) | Step 3 | Whether a crafted prompt reliably lands in a chosen built-in category and shows the configured action | | Required | Open |
 | 8 | [docs/module2/governance-decisions.md](docs/module2/governance-decisions.md) | Step 3 | Confirm the exact column labels in the Public Services catalog Intercept Support grid match: Request, Response, License, File Upload, MCP | | Required | Open |
-| 9 | [docs/appendix/mcp-future.md](docs/appendix/mcp-future.md) | Full exercise | All items in the Matthieu handoff checklist — see that file for the full list | | Owner: Matthieu | Open |
+| 9 | [docs/module6/mcp-setup.md](docs/module6/mcp-setup.md) | Step 2 — Node.js | Whether Node.js v18+ is pre-installed in the Blueprint Windows 11 image or must be installed manually by the SE | | Required | Open |
+| 10 | [docs/module6/mcp-setup.md](docs/module6/mcp-setup.md) | Step 3 — config file path | Confirm `%APPDATA%\Claude\claude_desktop_config.json` is the correct MCP config path for the version of Claude Code on the Windows VM | | Required | Open |
+| 11 | [docs/module6/mcp-policy.md](docs/module6/mcp-policy.md) | Step 1 — catalog entry | Confirm the GitHub MCP server appears in Catalog → MCP Servers automatically after first use, and that tool names in the catalog match the names the GitHub MCP server package exposes (they differ between server versions) | | Required | Open |
+| 12 | [docs/module6/mcp-policy.md](docs/module6/mcp-policy.md) | Step 2 — MCP Tools tab | Confirm the navigation path and exact UI labels for the MCP Tools tab: Allow list, Block list, and catch-all action selector | | Required | Open |
+| 13 | [docs/module6/mcp-policy.md](docs/module6/mcp-policy.md) | Step 5 — blocked tool event | Confirm that a blocked MCP tool call produces a User Activity event with the tool name and a `BLOCK` decision in the current tenant version | | Required | Open |
 
 ---
 

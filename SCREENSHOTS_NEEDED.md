@@ -32,6 +32,15 @@ kebab-case filenames ending in `.png`.
 | 14 | 5.4 Step 3 | `classifier-policy-action.png` | Default Policy Classifiers tab → Intent Topic Controls section showing `Lab - Project Lighthouse` with Monitor action being selected | Highlight the classifier row and action dropdown | Required | Missing |
 | 15 | 5.4 Step 5 | `custom-intent-event-detail.png` | User Activity detail panel for a `WAIS-LAB-CI-54` event: Violations section shows `Lab - Project Lighthouse` finding; decision shows `INTERCEPT` | Redact identity; highlight the classifier name in violations and the decision value | Required | Provided |
 
+| 16 | 6.1 Step 2 | `mcp-node-version.png` | Terminal output of `node --version` showing v18+ | Crop to just the terminal output | Required | Missing |
+| 17 | 6.1 Step 3 | `mcp-config-file.png` | Notepad showing `claude_desktop_config.json` with the GitHub MCP server entry | **Token value must be fully redacted** (`<REDACTED>`); show the JSON structure | Required | Missing |
+| 18 | 6.1 Step 4 | `mcp-server-connected.png` | Claude Code terminal showing `/mcp` output with `github` server listed as connected | Crop to the `/mcp` output | Required | Missing |
+| 19 | 6.2 Step 1 | `mcp-catalog-entry.png` | MCP Servers catalog showing the GitHub MCP server entry with tool count | Show the entry row clearly | Required | Missing |
+| 20 | 6.2 Step 2 | `mcp-policy-default-state.png` | Default Policy MCP Tools tab in its out-of-the-box state before changes | Show all three sections: Allow list, Block list, catch-all | Required | Missing |
+| 21 | 6.2 Step 3 | `mcp-policy-allow-list.png` | Default Policy MCP Tools tab with three tools on allow list and catch-all set to Block | Highlight the allow list entries and the catch-all setting | Required | Missing |
+| 22 | 6.2 Step 4 | `mcp-allowed-tool-event.png` | User Activity event detail for `WAIS-LAB-MCP-62a` prompt showing MCP tool call with `INTERCEPT` decision | Redact identity; show tool name and decision | Required | Missing |
+| 23 | 6.2 Step 5 | `mcp-blocked-tool-event.png` | User Activity event detail for `WAIS-LAB-MCP-62b` prompt showing MCP tool call with `BLOCK` decision | Redact identity; show tool name and BLOCK decision | Required | Missing |
+
 ---
 
 ## Retired / superseded

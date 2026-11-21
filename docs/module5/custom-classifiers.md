@@ -1,9 +1,8 @@
 # Exercise 5.4 — Custom Classifiers: Protect Business Context, Not Just Known PII
 
 > **Optional / advanced.** This exercise expands on the existing Categorization
-> module. It introduces Custom Intent and Custom Entity classifiers using a fictional
-> acquisition scenario. Steps requiring hands-on UI verification are flagged — do not
-> present unverified click paths to a customer.
+> module. It introduces Custom Intent classifiers using a fictional acquisition
+> scenario.
 
 **Goal:** Create a lab-only Custom Intent classifier that detects a fictional
 confidential subject across paraphrased prompts, attach a safe monitor action, generate
@@ -43,82 +42,76 @@ detection is enforceable:
 
 ---
 
-## Step 1 — Inspect existing classifiers
+## Step 1 — Open the Classifiers screen
 
-1. Open **Detection → Classifiers** (or the equivalent current navigation path in your
-   tenant).
+1. In the admin console, navigate to **Workforce Security → Classifiers**.
 
-> **Screenshot needed:** `docs/images/custom-intent-list.png` — the Classifiers list
-> view showing existing custom intents and/or custom entities; redact any real
-> customer-specific classifier names if visible.
+2. Click **Add Classifier** to open the classifier type dialog.
 
-2. Note how many Custom Intent and Custom Entity classifiers already exist in this
-   tenant. Record this count — you will confirm it is restored in the reset step.
+![The Classifiers list with the Add Classifier button highlighted.](../images/custom-intent-list-add-classifier-button.png ':size=700')
 
-3. Open the **Default Policy** (Workforce Security → Default Policy) and select the
-   **Classifiers** tab.
+*Figure 5.4a — The Classifiers screen. Click Add Classifier to begin.*
 
-4. Note the current state of **Intent Topic Controls** and **Custom Entity Controls**.
-   Record any actions that are already configured — you will restore them.
+3. In the dialog, select **Custom Intent**.
 
-> **Expected result.** You have a baseline record of existing classifiers and their
-> current policy actions, so the reset can be exact.
+![The Add Classifier dialog showing Custom Intent selected.](../images/add-custom-intent.png ':size=600')
+
+*Figure 5.4b — Choose Custom Intent from the classifier type dialog.*
 
 ---
 
-## Step 2 — Create a Custom Intent classifier
+## Step 2 — Create the Custom Intent classifier
 
 The fictional scenario: your customer has a confidential acquisition called
 **Project Lighthouse**, also internally referred to as **Northstar Analytics**. They
 need to detect when employees discuss it with public AI services, even in paraphrase.
 
-1. From the Classifiers screen, create a **New Custom Intent**.
-
-> **Screenshot needed:** `docs/images/custom-intent-create.png` — the Create Custom
-> Intent dialog or form, showing the name field and example-prompts area; use the
-> fictional Project Lighthouse content exactly.
-
-2. Set the following values:
+1. In the Custom Intent creation form, set:
 
    | Field | Value |
    |---|---|
    | **Name** | `Lab - Project Lighthouse` |
    | **Description** | `Lab-only: fictional confidential acquisition scenario` |
 
-3. Add the following example prompts. These train the semantic matcher — the more
-   varied the phrasing, the broader the coverage.
+![Creating the Lab - Project Lighthouse custom intent.](../images/add-lab-project-lighthouse-intent.png ':size=700')
 
-> **Screenshot needed:** `docs/images/custom-intent-examples.png` — the example
-> prompts field with the five fictional prompts entered below; no real data.
+*Figure 5.4c — Fill in the name and description for the new classifier.*
 
-   Enter each prompt on its own line:
+2. Load the example prompts by dragging **`custom-intents.txt`** from the Windows
+   Desktop into the upload area of the classifier form.
+
+   The file contains these five example prompts:
 
    ```text
    What's the latest on the Project Lighthouse acquisition?
-   ```
-
-   ```text
    Has anyone talked to the Northstar Analytics team about the deal timeline?
-   ```
-
-   ```text
    Can you draft a message to our investment banker about the target company?
-   ```
-
-   ```text
    What valuation range is typical for a mid-market SaaS acquisition like ours?
-   ```
-
-   ```text
    I need to summarize the due diligence findings for the board presentation.
    ```
 
-4. Save the classifier.
+   > **Note.** You cannot paste multiple prompts at once — load them by dragging and
+   > dropping `custom-intents.txt` from the Desktop into the upload area.
 
-> **Note — no model training.** Despite any UI language suggesting otherwise, there is
-> no model training run. The example prompts are converted to embeddings when you save
-> and are available for matching almost immediately. A prompt is flagged when its
-> meaning is close enough to your examples — which is why paraphrases match without
+3. Confirm the prompts appear in the upload area before proceeding.
+
+![The classifier form after drag-and-drop, before clicking Start Upload.](../images/drop-custom-intents-txt-file.png ':size=700')
+
+*Figure 5.4d — After dragging the file in, verify the prompts are listed before clicking Start Upload.*
+
+4. Click **Start Upload**.
+
+5. Confirm all five prompts load successfully.
+
+![The classifier form showing all five prompts loaded.](../images/custom-intents-loaded.png ':size=700')
+
+*Figure 5.4e — All five example prompts loaded.*
+
+6. Save the classifier.
+
+> **Note — no model training.** The example prompts are converted to embeddings when
+> you save and are available for matching almost immediately. A prompt is flagged when
+> its meaning is close enough to your examples — which is why paraphrases match without
 > sharing any keywords.
 
 > **Expected result.** A classifier named `Lab - Project Lighthouse` appears in the
@@ -131,7 +124,8 @@ need to detect when employees discuss it with public AI services, even in paraph
 A classifier with no action is invisible. You must attach an action in policy before
 any detection can influence a decision or appear on an event.
 
-1. Return to **Workforce Security → Default Policy → Classifiers tab**.
+1. Navigate to **Workforce Security → Default Policy** and select the **Classifiers**
+   tab.
 
 2. Under **Intent Topic Controls**, find `Lab - Project Lighthouse`.
 
@@ -191,10 +185,9 @@ WAIS-LAB-CI-54 What is the best way to structure a weekly team standup for a
 distributed engineering team?
 ```
 
-> **Note — expected behavior.** Prompts 1 and 2 should match the classifier. Prompt 3
-> may match (the semantic meaning is close to M&A due diligence). Prompt 4 is a
-> negative control and should not match. Actual results depend on the semantic model
-> in this tenant version; record what you observe rather than asserting a guaranteed
+> **Expected behavior.** Prompts 1 and 2 should match the classifier. Prompt 3 may
+> match (the semantic meaning is close to M&A due diligence). Prompt 4 is a negative
+> control and should not match. Record what you observe — do not assert a guaranteed
 > outcome.
 
 ---
@@ -206,9 +199,9 @@ distributed engineering team?
 
 2. Open the detail panel for each of the four events.
 
-> **Screenshot needed:** `docs/images/custom-intent-event-detail.png` — User Activity
-> detail panel for one of the test events, showing the classifier finding
-> (`Lab - Project Lighthouse`) and the Monitor decision; redact any identity fields.
+![User Activity detail panel showing the Lab - Project Lighthouse classifier finding and INTERCEPT decision.](../images/custom-intent-event-detail.png ':size=700')
+
+*Figure 5.4f — The event detail shows the classifier finding under Violations and the INTERCEPT decision.*
 
 3. For each event, record:
 
@@ -249,7 +242,7 @@ distributed engineering team?
 
 ---
 
-## Step 6 — Custom Entity: a note on pattern-based detection
+## Step 6 — Custom Entity: when to use pattern-based detection
 
 You do not need to create a Custom Entity for this exercise, but understand when to
 recommend one:
@@ -265,17 +258,13 @@ recommend one:
 > the entire prompt is exactly that string. Real prompts are sentences. Use unanchored
 > patterns in Custom Entity classifiers.
 
-> **Screenshot needed:** `docs/images/custom-entity-example.png` — the Custom Entity
-> creation form showing an example pattern field with a fictional ticket-format
-> pattern (e.g. `LH-\d{4}`) and no real customer data.
-
 ---
 
 ## Where to see the evidence
 
 | Evidence type | Where to find it |
 |---|---|
-| Classifier list and counts | Detection → Classifiers |
+| Classifier list | Workforce Security → Classifiers |
 | Policy actions for classifiers | Workforce Security → Default Policy → Classifiers tab |
 | Classifier findings on events | Observe → User Activity → `>` detail panel → Violations section |
 
@@ -296,13 +285,12 @@ recommend one:
 
 ## Reset / cleanup (required)
 
-1. Open **Default Policy → Classifiers → Intent Topic Controls** and remove the
-   action from `Lab - Project Lighthouse` (set to no action, or the original state
-   you recorded in Step 1).
-2. Save the policy.
-3. Open **Detection → Classifiers** and delete the `Lab - Project Lighthouse`
-   classifier.
-4. Confirm the classifier count matches what you recorded in Step 1.
+1. Navigate to **Workforce Security → Default Policy → Classifiers** tab.
+2. Under **Intent Topic Controls**, remove the action from `Lab - Project Lighthouse`
+   (set to no action).
+3. Save the policy.
+4. Navigate to **Workforce Security → Classifiers** and delete the
+   `Lab - Project Lighthouse` classifier.
 5. Confirm the Default Policy Classifiers tab is back to its original state.
 
 > **Warning.** Do not leave a monitor or block action on a custom classifier in the

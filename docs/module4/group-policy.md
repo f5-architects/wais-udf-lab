@@ -75,19 +75,24 @@ Action to grant:        Allow (or the specific service-allow behavior available)
 
 ---
 
-## Step 2 — Create a group and group policy
+## Step 2 — Create a group
+
+> **Important.** Creating a group and creating a group policy are two separate steps
+> in the WAIS console. Complete both sub-steps below before continuing to Step 3.
+
+**2a — Create the group**
 
 1. Open **Users & Groups → Groups** and create a new group.
 
-> **Screenshot needed:** `docs/images/group-policy-create.png` — the Create Group or
-> New Group Policy form with the lab group name entered; use `Lab-Engineering-Test`
-> exactly.
+> **Screenshot needed:** `docs/images/group-policy-create.png` — the Create Group
+> form with `Lab-Engineering-Test` entered in the name field.
 
 2. Name the group `Lab-Engineering-Test`. Add a description such as
    `Lab only — delete after exercise`.
 
-3. If the UI allows it, assign your test identity to the group at creation time.
-   If assignment is a separate step, complete Step 3 first.
+3. Save the group.
+
+**2b — Create the group policy**
 
 4. Navigate to **Workforce Security → Group Policies** and create a new group policy.
 
@@ -101,8 +106,9 @@ Action to grant:        Allow (or the specific service-allow behavior available)
 
 6. Save the group policy.
 
-> **Expected result.** A group named `Lab-Engineering-Test` and a group policy named
-> `Lab - Engineering Allow` both exist. The group policy allows the chosen service.
+> **Expected result.** A group named `Lab-Engineering-Test` and a separate group
+> policy named `Lab - Engineering Allow` both exist. The group policy is linked to
+> the group and allows the chosen service.
 
 ---
 
@@ -132,9 +138,7 @@ actually governed by?"*
 
 1. Open **Users & Groups → End Users** and open your test identity's record.
 
-2. Scroll to the **Policies** section (the name and location of this section need
-   hands-on confirmation — it may appear as a **Policies** tab or as a summary
-   within the user record).
+2. Select the **Policies** tab within the user record.
 
 > **Screenshot needed:** `docs/images/end-user-effective-policy.png` — the End User
 > record's Policies section or tab showing the Default Policy plus the
@@ -213,9 +217,6 @@ actually governed by?"*
 > **Expected result.** You can locate the administrative event for the group and policy
 > you created, and explain to a customer the difference between User Activity and
 > Audit Logs.
-
-> **Note.** Exact Audit Log event types and field names need hands-on confirmation.
-> Record any discrepancies in the [validation checklist](/appendix/validation.md).
 
 ---
 

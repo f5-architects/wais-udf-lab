@@ -184,37 +184,53 @@ actually governed by?"*
 ## Step 5 — Generate a request and inspect the event
 
 The group policy allows only **Anthropic API**. When you send a prompt via
-**ChatGPT** (which is not on the allowed list), it will be blocked and redirected —
-demonstrating that the group policy is enforcing access control.
+**ChatGPT** (which is not on the allowed list), it will be blocked and the user will
+see WAIS's **No Access Page** — demonstrating that the group policy is enforcing
+access control.
 
-1. From the Windows client, open ChatGPT and send this prompt:
+Before sending the test request, change the Default Policy's block action so the
+user sees the No Access Page rather than being redirected to another service:
+
+1. Navigate to **Workforce Security → Default Policy**.
+
+2. Locate the **Default Service Action** setting. The current value is likely
+   **Redirect to Copilot** (or similar). Change it to **Show the No Access Page**.
+
+![Default Policy Service Block Action setting showing the No Access Page option.](../images/no-service-page.png ':size=700')
+
+*Figure 4.7d — Set the Default Service Action to "Show the No Access Page".*
+
+3. Click **Save**.
+
+4. From the Windows client, open ChatGPT and send this prompt:
 
    ```text
    WAIS-LAB-GP-47 Testing group policy enforcement. This is a lab test.
    ```
 
-2. Observe that the request is **blocked and redirected to Copilot** — ChatGPT is
-   not in the group policy's allowed services list.
+5. The browser shows the **WAIS No Access Page** — ChatGPT is not in the group
+   policy's allowed services list, so the request is blocked and the custom block
+   page is displayed instead of the service.
 
-   > **Note — Copilot redirect.** The redirect destination is set by the Default
-   > Policy's **Service Block Action**. If Copilot also fails to load after the
-   > redirect, that is a separate known issue being tracked — the redirect itself is
-   > working correctly. See [CONFIRMATION_NEEDED.md](/CONFIRMATION_NEEDED.md) item 4.
+![WAIS No Access Page displayed after a blocked ChatGPT request.](../images/service-blocked-page.png ':size=700')
 
-3. Open **Observe → User Activity** and find the new event by marker or timestamp.
+*Figure 4.7e — The WAIS No Access Page confirms the block is working. This is
+the experience the end user sees.*
+
+6. Open **Observe → User Activity** and find the new event by marker or timestamp.
 
 > **Screenshot needed:** `docs/images/group-policy-activity.png` — User Activity event
 > for the `WAIS-LAB-GP-47` prompt showing a `BLOCK` decision and ChatGPT as the
 > service; redact identity fields.
 
-4. Open the event detail. Confirm:
+7. Open the event detail. Confirm:
    - **Service** is ChatGPT.
    - **Decision** is `BLOCK`.
    - **Identity** matches your test identity.
 
-> **Expected result.** The event shows `BLOCK` for ChatGPT, and the browser was
-> redirected. This proves the group policy's allow list is restricting access to
-> services not explicitly permitted.
+> **Expected result.** The browser shows the No Access Page, and User Activity records
+> the event as `BLOCK` for ChatGPT. This proves the group policy's allow list is
+> restricting access to services not explicitly permitted.
 
 ---
 
@@ -280,8 +296,8 @@ demonstrating that the group policy is enforcing access control.
 2. Open **Workforce Security → Group Policies** and **delete** `Lab - Engineering
    Allow`.
 3. Open **Users & Groups → Groups** and **delete** `Lab-Engineering-Test`.
-4. If you changed the Default Service Action in Step 5, return it to its original
-   value and save.
+4. Navigate to **Workforce Security → Default Policy** and return the **Default
+   Service Action** to its original value (the value you noted before Step 5). Save.
 5. Confirm User Activity shows no unexpected blocked or restricted events for your
    test identity after reset.
 
